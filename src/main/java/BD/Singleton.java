@@ -1,2 +1,8 @@
-package main.java.BD;public class Singleton {
+package BD;
+
+
+public class Singleton {
+
+    private static Singleton INSTANCE = null;
+
 }
