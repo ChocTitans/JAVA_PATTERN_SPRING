@@ -13,33 +13,14 @@ import java.util.Properties;
 public class TestJDBC {
     public static void main(String[] args) {
 
-        Connection connection = null;
+        Connection connection = Singleton.getSession();
         var crédits = new ArrayList<Credit>();
         try {
 
-          /*  Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("le driver de mysql a ete charge avec succes");
-            DriverManager.getConnection("jdbc:mysql://sql7.freemysqlhosting.net:3306/sql7609632","sql7609632","j2AtLu7Uyl");
-            System.out.println("cnx etablie");*/
+            var ps = connection.prepareStatement("SELECT cr.id, cr.capital, cr.nbrMois, cr.taux, cr.demandeur,cr.mensualite," +
+                    "u.nom, u.prenom from client cl, credit cr, utilisateur u");
 
-           ClassLoader cl = Thread.currentThread().getContextClassLoader();
-            var config = cl.getResourceAsStream("application.properties");
-
-            if(config == null) throw new IOException("Fichier properties introuvable");
-            Properties propertiesFile = new Properties();
-            propertiesFile.load(config);
-
-            var url = propertiesFile.getProperty("URL");
-            var user = propertiesFile.getProperty("USERNAME");
-            var pass = propertiesFile.getProperty("PASSWORD");
-
-            connection = DriverManager.getConnection(url,user,pass);
-
-            System.out.println("cnx établie avec succès");
-
-            var statement = connection.createStatement();
-            var rs = statement.executeQuery("SELECT cr.id, cr.capital, cr.nbrMois, cr.taux, cr.demandeur,cr.mensualite," +
-                    "u.nom, u.prenom from client cl, credit cr, utilisateur u" );
+            var rs = ps.executeQuery();
 
             while(rs.next())
             {
@@ -61,10 +42,6 @@ public class TestJDBC {
             else crédits.forEach(System.out::println);
 
 
-        }
-        catch (IOException e)
-        {
-            e.printStackTrace();
         }
         catch (SQLException e)
         {
