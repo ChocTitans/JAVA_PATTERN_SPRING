@@ -1,6 +1,6 @@
 package application;
 
-import dao.Credit;
+import Model.Credit;
 import dao.CreditDao;
 import dao.IDao;
 import metier.CreditMetier;

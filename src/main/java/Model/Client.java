@@ -1,4 +1,4 @@
-package dao;
+package Model;
 
 public class Client extends Utilisateur {
 

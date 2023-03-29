@@ -1,9 +1,11 @@
 package dao;
 
+import Model.Credit;
 import org.springframework.stereotype.Component;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 @Component("dao")
 
@@ -22,6 +24,31 @@ public class CreditDao implements IDao<Credit,Long> {
     public Credit trouveParId(Long id) {
         System.out.println("[DAO - DS volatile] trouver le credit n : "+id);
         return BDCredits().stream().filter(credit -> credit.getId()==id).findFirst().orElse(null);
+    }
+
+    @Override
+    public List<Credit> findAll() {
+        return null;
+    }
+
+    @Override
+    public Credit save(Credit credit) {
+        return null;
+    }
+
+    @Override
+    public Credit update(Credit credit) {
+        return null;
+    }
+
+    @Override
+    public Boolean delete(Credit credit) {
+        return null;
+    }
+
+    @Override
+    public Boolean deteleByID(Long aLong) {
+        return null;
     }
 
 }

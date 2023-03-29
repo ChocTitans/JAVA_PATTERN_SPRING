@@ -1,3 +1,3 @@
-package dao;
+package Model;
 
 public enum Sexe {Homme, Femme;}

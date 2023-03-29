@@ -1,6 +1,6 @@
 package metier;
 
-import dao.Credit;
+import Model.Credit;
 import dao.IDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;

@@ -1,4 +1,6 @@
-package dao;
+package Model;
+
+import Model.Role;
 
 public class Utilisateur {
     protected Long id;
