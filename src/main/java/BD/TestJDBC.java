@@ -44,27 +44,8 @@ public class TestJDBC {
         {
             e.printStackTrace();
         }
-        finally {
-            if(connection != null)
-            {
-                try {
-                    connection.close();
-                    System.out.println("Fermeture avec success");
-                }
-                catch (SQLException e)
-                {
-                    System.out.println("Fermeture echoue");
 
-                }
-            }
-        }
-        /*catch(ClassNotFoundException e)
-        {
-            System.out.println("Drover nn");
-        }
-        catch(SQLException e)
-        {
-            System.out.println("Cnx nn");
-        }*/
+        Singleton.closeSession();
+
     }
 }

@@ -13,6 +13,10 @@ public class Utilisateur {
         return nom + " " + prenom;
     }
 
+    public Long getId() {
+        return id;
+    }
+
     public void setNomcomplet(String nom, String prenom) {
         this.nom = nom;
         this.prenom = prenom;

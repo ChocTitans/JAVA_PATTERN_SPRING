@@ -45,9 +45,11 @@ public class Credit {
     public  Double getcapilate_Emprunte(){
       return capilate_Emprunte;
      }
-    public  String getnom_Demandeur(){
-      return nom_Demandeur.toString();
-     }
+
+    public Client getNom_Demandeur() {
+        return nom_Demandeur;
+    }
+
     public  Double getmensualite(){
       return mensualite;
      }
